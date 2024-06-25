@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  owncloud:
+    image: owncloud/server:latest
+    restart: always
+    ports:
+      - "8081:8080"  # Cambiamos el puerto 8080 a 8081 para OwnCloud
+    volumes:
+      - ./owncloud:/var/www/html
+    env_file:
+      - .env.owncloud
+    depends_on:
+      - db
+
+  db:
+    image: mariadb
+    restart: always
+    env_file:
+      - .env.db
+    volumes:
+      - ./db:/var/lib/mysql

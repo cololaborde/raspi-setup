@@ -1,0 +1,15 @@
+version: "3"
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    env_file:
+      - .env.pihole
+    volumes:
+      - /home/pi/volumes/pihole/etc:/etc/pihole
+      - /home/pi/volumes/pihole/dnsmasq.d:/etc/dnsmasq.d
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 8080:80/tcp # Porque habitualmente el 80 estará ocupado por un dashboard o un proxy
+    restart: always
