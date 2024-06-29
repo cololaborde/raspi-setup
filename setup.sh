@@ -34,15 +34,14 @@ sudo ./utils/scripts/install-python.sh
 
 # Install network manager
 sudo apt install network-manager
-sudo apt update
 
-sudo apt install python3-pip
 sudo apt update
 sudo pip3 install adafruit-circuitpython-ssd1306
 sudo pip3 install pillow
 
 
 # Setup onstartup actions
+sudo rm /etc/rc.local
 sudo chmod +x utils/scripts/onstartup.sh
 echo  cd $HOME"/raspi-setup/utils/scripts && ./onstartup.sh &" | sudo tee -a /etc/rc.local
 echo cd $HOME"/raspi-setup/utils/OLED_Stats && python3 monitor.py &" | sudo tee -a /etc/rc.local
