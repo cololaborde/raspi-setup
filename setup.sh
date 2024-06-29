@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Update and upgrade
+sudo apt update
+sudo apt upgrade -y
+
 # Create necessary directories
 mkdir pihole
 mkdir owncloud
@@ -13,7 +17,7 @@ sudo ./utils/scripts/install-docker.sh
 cp utils/composes/pihole.yml pihole/docker-compose.yml
 cp env-files/.env.pihole pihole/.env.pihole
 cd pihole
-docker compose up -d
+sudo docker-compose up -d
 cd ..
 
 # Setup owncloud
@@ -21,7 +25,7 @@ cp utils/composes/owncloud.yml owncloud/docker-compose.yml
 cp env-files/.env.owncloud owncloud/.env.owncloud
 cp env-files/.env.db owncloud/.env.db
 cd owncloud
-docker compose up -d
+sudo docker-compose up -d
 cd ..
 
 # Install python
