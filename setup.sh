@@ -36,8 +36,8 @@ sudo ./utils/scripts/install-python.sh
 sudo apt install network-manager
 
 sudo apt update
-sudo python3 -m pip install adafruit-circuitpython-ssd1306
-sudo python3 -m pip install pillow
+pip install adafruit-circuitpython-ssd1306 --break-system-packages
+pip install pillow --break-system-packages
 
 
 # Setup onstartup actions
