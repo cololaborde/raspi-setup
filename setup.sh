@@ -6,8 +6,8 @@ mkdir owncloud
 # mkdir env-files
 
 # Install docker
-sudo chmod +x utils/scripts/install_docker.sh
-sudo ./utils/scripts/install_docker.sh
+sudo chmod +x utils/scripts/install-docker.sh
+sudo ./utils/scripts/install-docker.sh
 
 # Setup pihole
 cp utils/composes/pihole.yml pihole/docker-compose.yml
@@ -25,12 +25,18 @@ docker compose up -d
 cd ..
 
 # Install python
-sudo chmod +x utils/scripts/install_python.sh
-sudo ./utils/scripts/install_python.sh
+sudo chmod +x utils/scripts/install-python.sh
+sudo ./utils/scripts/install-python.sh
 
 # Install network manager
 sudo apt install network-manager
 sudo apt update
+
+sudo apt install python3-pip
+sudo apt update
+sudo pip3 install adafruit-circuitpython-ssd1306
+sudo pip3 install pillow
+
 
 # Setup onstartup actions
 sudo chmod +x utils/scripts/onstartup.sh
