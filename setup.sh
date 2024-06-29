@@ -28,6 +28,10 @@ cd ..
 sudo chmod +x utils/scripts/install_python.sh
 sudo ./utils/scripts/install_python.sh
 
+# Install network manager
+sudo apt install network-manager
+sudo apt update
+
 # Setup onstartup actions
 sudo chmod +x utils/scripts/onstartup.sh
 echo  cd $HOME"/raspi-setup/utils/scripts && ./onstartup.sh &" | sudo tee -a /etc/rc.local
