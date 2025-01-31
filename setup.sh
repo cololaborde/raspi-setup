@@ -47,6 +47,8 @@ echo  cd $HOME"/raspi-setup/utils/scripts && ./onstartup.sh &" | sudo tee -a /et
 echo cd $HOME"/raspi-setup/utils/OLED_Stats && python3 monitor.py &" | sudo tee -a /etc/rc.local
 echo exit 0 | sudo tee -a /etc/rc.local
 
+sudo chmod +x /etc/rc.local
+
 # Reboot
 echo "Setup completed. Rebooting in 5 seconds..."
 sleep 5
